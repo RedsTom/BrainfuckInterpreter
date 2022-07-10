@@ -34,3 +34,5 @@ lombok {
             "lombok.accessors.fluent": true
     ]
 }
+
+sourceCompatibility = targetCompatibility = '18'

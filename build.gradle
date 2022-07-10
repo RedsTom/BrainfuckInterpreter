@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id "io.freefair.lombok" version "6.4.3"
+}
+
+group 'me.redstom'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+    jvmArgs(['--enable-preview'])
+}
+
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
+application {
+    mainClassName 'me.redstom.bf.Main'
+}
+
+lombok {
+    config = [
+            "lombok.accessors.fluent": true
+    ]
+}

@@ -28,7 +28,7 @@ public class Parser {
         Token token = this.lookahead;
 
         if(token == null) {
-            throw new SyntaxError("Unexpected en of input, expected : \"" + expected.named() + "\" !");
+            throw new SyntaxError("Unexpected end of input, expected : \"" + expected.named() + "\" !");
         }
 
         if(token != expected) {

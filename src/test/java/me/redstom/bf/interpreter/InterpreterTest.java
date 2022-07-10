@@ -37,7 +37,6 @@ class InterpreterTest {
         String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
 
         Block block = parser.parse(code);
-
         interpreter.init(block.body());
 
         assertEquals("Hello World!\n", outContent.toString());

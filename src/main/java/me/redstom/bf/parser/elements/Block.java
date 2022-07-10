@@ -29,7 +29,7 @@ public record Block(Node[] body) implements Node {
 
             List<Node> nodes = new ArrayList<>();
 
-            while(ctx.lookahead() != context.stop()) {
+            while(ctx.lookahead() != null && ctx.lookahead() != context.stop()) {
                 switch (ctx.lookahead()) {
                     case BEGIN -> {
                         nodes.add(ctx.parse(Loop.Parser.class));

@@ -1,5 +1,6 @@
 package me.redstom.bf.parser;
 
+import me.redstom.bf.exceptions.SyntaxError;
 import me.redstom.bf.parser.elements.Block;
 import me.redstom.bf.parser.elements.Instruction;
 import me.redstom.bf.parser.elements.Loop;
@@ -42,5 +43,11 @@ class ParserTest {
         assertEquals(loopBody[2], Instruction.ADD);
         assertEquals(loopBody[3], Instruction.MVL);
         assertEquals(loopBody[4], Instruction.SUB);
+    }
+
+    @Test
+    public void testSyntaxError() {
+        String code = "++++[>++<-";
+        assertThrows(SyntaxError.class, () -> parser.parse(code), "Unexpected end of input, expected : \"]\" !");
     }
 }
